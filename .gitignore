@@ -1,0 +1,8 @@
+plugin
+after
+lua/lsp/lua-language-server
+lua/lsp/lua-language-server/*
+lua/lsp-config
+lua/lsp-config/*
+.luarc.json
+
