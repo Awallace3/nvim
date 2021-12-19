@@ -1,11 +1,12 @@
-require('lsp')
-require('keybindings')
-require('packages')
-require('config')
-require('telescope-config')
-require('treesitter-config')
-require('lualine-config')
-require('run_file')
-require('run-module')
-require('colorscheme')
-require('format_config')
+require 'lsp'
+require 'keybindings'
+require 'packages'
+require 'config'
+require 'telescope-config'
+require 'treesitter-config'
+require 'lualine-config'
+require 'run_file'
+require 'whichkey-config'
+require 'colorscheme'
+require 'format_config'
+require 'toggleterm-config'

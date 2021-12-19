@@ -8,12 +8,11 @@ vim.g.mapleader = ' '
 -- closing tags
 -- keymap('i', '{', '{<CR>}<Esc>ko', opts)
 keymap('i', '{', '{<CR>}<Esc>ko', opts)
-keymap('i', '(', '()<Esc>hi', opts)
-keymap('i', '[', '[]<Esc>hi', opts)
+keymap('i', '(', '()<Esc>i', opts)
+keymap('i', '[', '[]<Esc>i', opts)
 keymap('i', '"', '""<Esc>i', opts)
 keymap('i', "'", "''<Esc>i", opts)
 keymap('i', '$', '$$<Esc>i', opts)
-keymap('i', '[', '[]<Esc>hi', opts)
 keymap('i', "<", "<><Esc>i", opts)
 keymap('i', "<", "<><Esc>i", opts)
 

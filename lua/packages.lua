@@ -56,6 +56,12 @@ require('packer').startup(function()
   -- use 'mhartington/formatter.nvim'
   use 'lukas-reineke/format.nvim'
 
+  use {'folke/which-key.nvim'}
+
+  -- use 'voldikss/vim-floaterm'
+  use 'akinsho/toggleterm.nvim'
+
+  use {'tami5/lspsaga.nvim', config = "require('lspsaga-config')"}
   -- can specify the config for package directly after listing...
   -- 'vimwiki/vimwiki' = function()
   -- vim.g.vimwiki_list = {...}
