@@ -34,10 +34,9 @@ keymap('n', '<Leader>P', ":terminal python3 %<CR>", opts)
 keymap('n', '<Leader>f', ':Telescope find_files<cr>', {})
 keymap('n', '<Leader>r', ':Telescope live_grep<cr>', {})
 
--- lSP
---
---
---
---
---
-
+-- Database with dadbod
+keymap('n', '<Leader>du', ':DBUIToggle<cr>', {})
+keymap('n', '<Leader>df', ':DBUIFindBuffer<cr>', {})
+keymap('n', '<Leader>dr', ':DBUIRenameBuffer<cr>', {})
+keymap('n', '<Leader>dl', ':DBUILastQueryInfo<cr>', {})
+vim.g['db_ui_save_location']= '~/.config/db_ui'

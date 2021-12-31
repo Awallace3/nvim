@@ -28,7 +28,7 @@ require('packer').startup(function()
       local startify = require("alpha.themes.startify")
       startify.section.bottom_buttons.val = {
         startify.button("e", "new file", ":ene <bar> startinsert <cr>"), startify.button("v", "neovim config", ":e ~/.config/nvim/init.lua<cr>"),
-        startify.button("q", "quit nvim", ":qa<cr>")
+        startify.button("q", "quit nvim", ":qa<cr>"), startify.button("t", "life.org", ":e ~/.life.org<cr>")
       }
       vim.api.nvim_set_keymap('n', '<c-n>', ":Alpha<cr>", {noremap = true})
     end
@@ -66,5 +66,18 @@ require('packer').startup(function()
   -- 'vimwiki/vimwiki' = function()
   -- vim.g.vimwiki_list = {...}
   -- end
+  -- orgmode
+  use {'nvim-treesitter/nvim-treesitter'}
+  use {
+    'nvim-orgmode/orgmode',
+    config = function()
+      require('orgmode').setup {}
+    end
+  }
+
+  -- Database
+  use {'tpope/vim-dadbod'}
+  use {'kristijanhusak/vim-dadbod-ui'}
+
 end)
 
