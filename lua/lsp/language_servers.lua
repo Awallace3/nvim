@@ -12,11 +12,11 @@ require'lspconfig'.tsserver.setup {
   capabilities = capabilities,
 }
 
---require'lspconfig'.pylsp.setup {
---  capabilities = capabilities,
---}
+require'lspconfig'.pylsp.setup {
+  capabilities = capabilities,
+}
 
-require'lspconfig'.jedi_language_server.setup{}
+--require'lspconfig'.jedi_language_server.setup{}
 
 --lua
 
