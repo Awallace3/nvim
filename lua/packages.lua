@@ -98,5 +98,8 @@ require('packer').startup(function()
 
   use 'windwp/nvim-autopairs'
   use 'GoldsteinE/compe-latex-symbols'
+  use 'p00f/nvim-ts-rainbow'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'numToStr/Comment.nvim'
 end)
 

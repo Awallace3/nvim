@@ -68,7 +68,6 @@ require'format'.setup {
     }
   }
 }
--- vim.cmd('autocmd BufWritePost * FormatWrite')
 local keymap = vim.api.nvim_set_keymap
 local opts = {noremap = true}
 keymap('n', '<Leader>F', ':w | FormatWrite<cr>', opts)
