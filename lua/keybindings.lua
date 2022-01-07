@@ -7,14 +7,17 @@ vim.g.mapleader = ' '
 
 -- closing tags
 -- keymap('i', '{', '{<CR>}<Esc>ko', opts)
-keymap('i', '{', '{<CR>}<Esc>ko', opts)
-keymap('i', '(', '()<Esc>i', opts)
-keymap('i', '[', '[]<Esc>i', opts)
-keymap('i', '"', '""<Esc>i', opts)
-keymap('i', "'", "''<Esc>i", opts)
-keymap('i', '$', '$$<Esc>i', opts)
-keymap('i', "<", "<><Esc>i", opts)
-keymap('i', "<", "<><Esc>i", opts)
+--keymap('i', '{', '{<CR>}<Esc>ko', opts)
+--keymap('i', '(', '()<Esc>i', opts)
+--keymap('i', '[', '[]<Esc>i', opts)
+--keymap('i', '"', '""<Esc>i', opts)
+--keymap('i', "'", "''<Esc>i", opts)
+--keymap('i', '$', '$$<Esc>i', opts)
+--keymap('i', "<", "<><Esc>i", opts)
+--keymap('i', "<", "<><Esc>i", opts)
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
 
 keymap('n', '<c-s>', ':w<CR>', {})
 keymap('i', '<c-s>', '<ESC>:w<CR>a', {})

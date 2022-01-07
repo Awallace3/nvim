@@ -1,4 +1,5 @@
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
+--vim.g.completeopt = "menu,menuone"
 
 -- example mappings
 local has_words_before = function()
@@ -52,7 +53,8 @@ cmp.setup({
     end, {"i", "s"})
   },
   sources = cmp.config.sources({
-    {name = 'orgmode'}, {name = 'nvim_lsp'}, {name = 'vsnip'} -- For vsnip users.
+    {name = 'orgmode'}, {name = 'nvim_lsp'}, {name = 'vsnip'}, -- For vsnip users.
+    {name = 'latex_symbols'},
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
@@ -65,4 +67,3 @@ cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
-
