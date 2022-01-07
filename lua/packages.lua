@@ -47,8 +47,29 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   -- use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'
+  -- use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+  -- Installation
+  -- snippets
+  use 'rafamadriz/friendly-snippets'
+  use {'L3MON4D3/LuaSnip'}
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require'cmp'.setup {
+        snippet = {
+          expand = function(args)
+            require'luasnip'.lsp_expand(args.body)
+          end
+        },
+        sources = {
+          {name = 'luasnip'}
+          -- more sources
+        }
+      }
+    end
+  }
+  use {'saadparwaiz1/cmp_luasnip'}
 
   use 'onsails/lspkind-nvim'
 
@@ -101,5 +122,6 @@ require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'numToStr/Comment.nvim'
+
 end)
 

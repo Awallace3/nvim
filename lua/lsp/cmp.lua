@@ -15,12 +15,57 @@ end
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
+
+-- luasnips
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+  return
+end
+
+require("luasnip/loaders/from_vscode").lazy_load()
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+require('luasnip').filetype_extend("javascript", { "html" })
+
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      --require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body)
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
     end
@@ -32,33 +77,71 @@ cmp.setup({
     ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ['<C-e>'] = cmp.mapping({i = cmp.mapping.abort(), c = cmp.mapping.close()}),
     ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = true}),
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
+    --   if cmp.visible() then
+    --     cmp.select_next_item()
+    --   elseif vim.fn["vsnip#available"](1) == 1 then
+    --     feedkey("<Plug>(vsnip-expand-or-jump)", "")
+    --   elseif has_words_before() then
+    --     cmp.complete()
+    --   else
+    --     fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+    --   end
+    -- end, {"i", "s"}),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif vim.fn["vsnip#available"](1) == 1 then
-        feedkey("<Plug>(vsnip-expand-or-jump)", "")
-      elseif has_words_before() then
-        cmp.complete()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
       else
-        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+        fallback()
       end
-    end, {"i", "s"}),
+    end, {
+      "i",
+      "s",
+    }),
 
-    ["<S-Tab>"] = cmp.mapping(function()
+    -- ["<S-Tab>"] = cmp.mapping(function()
+    --   if cmp.visible() then
+    --     cmp.select_prev_item()
+    --   elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+    --     feedkey("<Plug>(vsnip-jump-prev)", "")
+    --   end
+    -- end, {"i", "s"})
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-        feedkey("<Plug>(vsnip-jump-prev)", "")
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
       end
-    end, {"i", "s"})
+    end, {
+      "i",
+      "s",
+    }),
   },
   sources = cmp.config.sources({
+      {name='luasnip'},
     {name = 'orgmode'}, {name = 'nvim_lsp'}, {name = 'vsnip'}, -- For vsnip users.
     {name = 'latex_symbols'},
+      {name='path'},
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   }, {{name = 'buffer'}}),
+  -- documentaion is a test
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
+  experimental = {
+    ghost_text = true,
+    --native_menu = false,
+  },
   formatting = {format = lspkind.cmp_format({with_text = true, maxwidth = 50})}
 })
 
