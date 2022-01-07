@@ -12,6 +12,9 @@ require'lspconfig'.tsserver.setup {
   capabilities = capabilities,
 }
 
+-- might affect luasnips
+require "lsp_signature".setup()
+
 require'lspconfig'.pylsp.setup {
   capabilities = capabilities,
 }

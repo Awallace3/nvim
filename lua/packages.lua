@@ -122,6 +122,6 @@ require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'numToStr/Comment.nvim'
-
+  use {"ray-x/lsp_signature.nvim"}
 end)
 
