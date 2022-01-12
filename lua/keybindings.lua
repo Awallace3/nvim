@@ -27,6 +27,9 @@ keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
 
+keymap('n', ']b', ':bn<cr>', opts)
+keymap('n', '[b', ':bprevious<cr>', opts)
+
 -- keymap('n', '<Leader>R', ":lua Test()<CR>", opts)
 -- keymap('n', '<Leader>R', ":lua File_type(%)", opts)
 -- keymap('n', '<Leader>R', ":terminal /Users/austinwallace/.config/nvim/lua/run-module/file_type.lua ", opts)

@@ -90,7 +90,6 @@ require('packer').startup(function()
   -- vim.g.vimwiki_list = {...}
   -- end
   -- orgmode
-  use {'nvim-treesitter/nvim-treesitter'}
   use {
     'nvim-orgmode/orgmode',
     config = function()
@@ -123,5 +122,78 @@ require('packer').startup(function()
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'numToStr/Comment.nvim'
   use {"ray-x/lsp_signature.nvim"}
+
+  -- using packer.nvim
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'tpope/vim-surround', config = function ()
+      require('vim-surround').setup()
+  end}
+
+--   use {
+--     'kyazdani42/nvim-tree.lua',
+--     requires = {
+--       'kyazdani42/nvim-web-devicons', -- optional, for file icon
+--     },
+--     config = function() require'nvim-tree'.setup {
+--          disable_netrw       = true,
+--   hijack_netrw        = true,
+--   open_on_setup       = false,
+--   ignore_ft_on_setup  = {'lua-language-server'},
+--   auto_close          = true,
+--   open_on_tab         = true,
+--   hijack_cursor       = false,
+--   update_cwd          = false,
+--   update_to_buf_dir   = {
+--     enable = true,
+--     auto_open = true,
+--   },
+--   diagnostics = {
+--     enable = false,
+--     icons = {
+--       hint = "",
+--       info = "",
+--       warning = "",
+--       error = "",
+--     }
+--   },
+--   update_focused_file = {
+--     enable      = false,
+--     update_cwd  = false,
+--     ignore_list = {}
+--   },
+--   system_open = {
+--     cmd  = nil,
+--     args = {}
+--   },
+--   filters = {
+--     dotfiles = false,
+--     custom = {}
+--   },
+--   git = {
+--     enable = false,
+--     --ignore = true,
+--     timeout = 500,
+--   },
+--   view = {
+--     width = 30,
+--     height = 30,
+--     hide_root_folder = false,
+--     side = 'left',
+--     auto_resize = false,
+--     mappings = {
+--       custom_only = false,
+--       list = {}
+--     },
+--     number = false,
+--     relativenumber = false,
+--     signcolumn = "yes"
+--   },
+--   trash = {
+--     cmd = "trash",
+--     require_confirm = true
+--   }
+--     } end
+-- }
+
 end)
 
