@@ -141,11 +141,12 @@ require('packer').startup(function()
     end
   }
   --use {'edluffy/hologram.nvim'}
-  -- use {'jbyuki/venn.nvim'}
+  use {'jbyuki/venn.nvim'}
 --  use {
 --    'glacambre/firenvim',
 --    run = function() vim.fn['firenvim#install'](0) end
 --    }
 
+    use {'preservim/nerdtree'}
 end)
 
