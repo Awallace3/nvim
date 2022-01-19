@@ -1,9 +1,11 @@
 -- :PackerSync -- confirms up to date
 local use = require('packer').use
 require('packer').startup(function()
+
+
   use 'wbthomason/packer.nvim'
   -- colorschemes
-  use 'tomasr/molokai'
+  --use 'tomasr/molokai'
   use 'rose-pine/neovim'
   use 'arcticicestudio/nord-vim'
   use 'folke/tokyonight.nvim'
@@ -12,14 +14,12 @@ require('packer').startup(function()
   use 'yuezk/vim-js'
   use 'maxmellon/vim-jsx-pretty'
 
-  use {
-    'vimwiki/vimwiki',
-    config = function()
-      vim.g.vimwiki_list = {{path = '~/', syntax = 'markdown', ext = '.md'}}
-      vim.g.vimwiki_ext2syntax = {['.md'] = 'markdown', ['.markdown'] = 'markdown', ['.mdown'] = 'markdown'}
-    end
-  }
+  -- use 'nvim-lua/popup.nvim'
+  -- use 'nvim-telescope/telescope-media-files.nvim'
 
+
+
+  use 'tpope/vim-surround'
   use {
     'goolord/alpha-nvim',
     requires = {'kyazdani42/nvim-web-devicons'},
@@ -85,15 +85,11 @@ require('packer').startup(function()
   use 'akinsho/toggleterm.nvim'
 
   use {'tami5/lspsaga.nvim', config = "require('lspsaga-config')"}
-  -- can specify the config for package directly after listing...
-  -- 'vimwiki/vimwiki' = function()
-  -- vim.g.vimwiki_list = {...}
-  -- end
   -- orgmode
   use {
     'nvim-orgmode/orgmode',
     config = function()
-      require('orgmode').setup {}
+      --require('orgmode').setup {}
     end
   }
 
@@ -125,75 +121,31 @@ require('packer').startup(function()
 
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-  use {'tpope/vim-surround', config = function ()
-      require('vim-surround').setup()
-  end}
 
---   use {
---     'kyazdani42/nvim-tree.lua',
---     requires = {
---       'kyazdani42/nvim-web-devicons', -- optional, for file icon
---     },
---     config = function() require'nvim-tree'.setup {
---          disable_netrw       = true,
---   hijack_netrw        = true,
---   open_on_setup       = false,
---   ignore_ft_on_setup  = {'lua-language-server'},
---   auto_close          = true,
---   open_on_tab         = true,
---   hijack_cursor       = false,
---   update_cwd          = false,
---   update_to_buf_dir   = {
---     enable = true,
---     auto_open = true,
---   },
---   diagnostics = {
---     enable = false,
---     icons = {
---       hint = "",
---       info = "",
---       warning = "",
---       error = "",
---     }
---   },
---   update_focused_file = {
---     enable      = false,
---     update_cwd  = false,
---     ignore_list = {}
---   },
---   system_open = {
---     cmd  = nil,
---     args = {}
---   },
---   filters = {
---     dotfiles = false,
---     custom = {}
---   },
---   git = {
---     enable = false,
---     --ignore = true,
---     timeout = 500,
---   },
---   view = {
---     width = 30,
---     height = 30,
---     hide_root_folder = false,
---     side = 'left',
---     auto_resize = false,
---     mappings = {
---       custom_only = false,
---       list = {}
---     },
---     number = false,
---     relativenumber = false,
---     signcolumn = "yes"
---   },
---   trash = {
---     cmd = "trash",
---     require_confirm = true
---   }
---     } end
--- }
+
+  use {
+    'vimwiki/vimwiki',
+    config = function()
+      vim.g.vimwiki_list = {{path = '~/vimwiki', syntax = 'markdown', ext = '.md'}}
+      -- vim.g.vimwiki_list = {{'path': {'type': type(''), 'default': '/Users/austinwallace/vimwiki', 'min_length': 1}}}
+--       vim.g.vimwiki_list = {
+-- 		path = '~/vimwiki/',
+-- 		path_html = '~/vimwiki/',
+-- 		template_path = '~/vimwiki/',
+-- 		template_default = 'default',
+-- 		syntax = 'markdown',
+-- 		ext = '.md'
+-- --		custom_wiki2html = '~/.local/share/nvim/scripts/wiki2html.sh',
+-- 	}
+             vim.g.vimwiki_ext2syntax = {['.md'] = 'markdown', ['.markdown'] = 'markdown', ['.mdown'] = 'markdown'}
+    end
+  }
+  --use {'edluffy/hologram.nvim'}
+  -- use {'jbyuki/venn.nvim'}
+--  use {
+--    'glacambre/firenvim',
+--    run = function() vim.fn['firenvim#install'](0) end
+--    }
 
 end)
 

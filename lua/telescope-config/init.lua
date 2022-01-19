@@ -1,3 +1,5 @@
+-- only supported on linux
+-- require('telescope').load_extension('media_files')
 local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
@@ -44,5 +46,14 @@ require('telescope').setup {
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
             }
         }
-    }
+    },
+  --   extensions = {
+  --   media_files = {
+  --     -- filetypes whitelist
+  --     -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+  --     filetypes = {"png", "webp", "jpg", "jpeg"},
+  --     find_cmd = "rg" -- find command (defaults to `fd`)
+  --   }
+  -- },
+
 }

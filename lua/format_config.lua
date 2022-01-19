@@ -1,4 +1,7 @@
 require'format'.setup {
+--    ["*"] = {
+--        {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
+--    },
   html = {{cmd = {"prettier -w"}}},
   css = {{cmd = {"prettier -w"}}},
   json = {{cmd = {"prettier -w"}}},
@@ -22,7 +25,7 @@ require'format'.setup {
     {
       cmd = {
         function(file)
-          return string.format('black --quiet %s', file)
+          return string.format("black --line-length 78 --quiet %s", file)
         end
       }
     }
