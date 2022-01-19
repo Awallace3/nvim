@@ -147,6 +147,15 @@ require('packer').startup(function()
 --    run = function() vim.fn['firenvim#install'](0) end
 --    }
 
-    use {'preservim/nerdtree'}
+    use {'preservim/nerdtree',
+        requires = {'Xuyuanp/nerdtree-git-plugin'}
+    }
+    use {
+     'lewis6991/gitsigns.nvim',
+     requires = {
+       'nvim-lua/plenary.nvim'
+     },
+    }
+
 end)
 

@@ -19,3 +19,4 @@ require 'drawer'
 --
 --#region
 --
+require 'git_int_config'
