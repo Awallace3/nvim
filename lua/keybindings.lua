@@ -44,6 +44,10 @@ keymap('n', '<Leader>r', ':Telescope live_grep<cr>', {})
 keymap('n', '<Leader>n', ':NERDTreeToggle<cr>', {})
 keymap('n', '<Leader>b', ':BufferLinePick<cr>', {})
 
+-- nabla
+keymap('n', '<F5>', ':lua require("nabla").action()<cr>', {})
+keymap('n', '<leader>p',':lua require("nabla").popup()<cr>', {})
+
 -- Database with dadbod
 keymap('n', '<Leader>du', ':DBUIToggle<cr>', {})
 keymap('n', '<Leader>df', ':DBUIFindBuffer<cr>', {})

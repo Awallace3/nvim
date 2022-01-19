@@ -156,6 +156,7 @@ require('packer').startup(function()
        'nvim-lua/plenary.nvim'
      },
     }
+    -- use 'jbyuki/nabla.nvim'
 
 end)
 
