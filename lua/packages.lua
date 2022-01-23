@@ -142,10 +142,10 @@ require('packer').startup(function()
   }
   --use {'edluffy/hologram.nvim'}
   use {'jbyuki/venn.nvim'}
---  use {
---    'glacambre/firenvim',
---    run = function() vim.fn['firenvim#install'](0) end
---    }
+ use {
+   'glacambre/firenvim',
+   run = function() vim.fn['firenvim#install'](0) end
+   }
 
     use {'preservim/nerdtree',
         requires = {'Xuyuanp/nerdtree-git-plugin'}
