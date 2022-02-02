@@ -7,6 +7,8 @@ require'lspconfig'.html.setup {capabilities = capabilities}
 require'lspconfig'.cssls.setup {capabilities = capabilities}
 
 require'lspconfig'.tsserver.setup {capabilities = capabilities}
+-- texlab
+require'lspconfig'.texlab.setup{capabilities = capabilities}
 
 -- might affect luasnips
 require"lsp_signature".setup()
