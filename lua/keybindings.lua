@@ -54,3 +54,21 @@ keymap('n', '<Leader>df', ':DBUIFindBuffer<cr>', {})
 keymap('n', '<Leader>dr', ':DBUIRenameBuffer<cr>', {})
 keymap('n', '<Leader>dl', ':DBUILastQueryInfo<cr>', {})
 vim.g['db_ui_save_location']= '~/.config/db_ui'
+
+keymap('n', '<Leader>ew', ':HopWord<cr>', {})
+keymap('n', '<Leader>ec', ':HopChar1<cr>', {})
+keymap('n', '<Leader>el', ':HopLine<cr>', {})
+
+keymap('v', '<Leader>w', "<esc>:'<,'>s/$/  /<cr>/added_whitespace<cr>", opts)
+
+-- magma
+
+-- keymap('n', '<silent><expr><LocalLeader>r', ':MagmaEvaluateOperator<CR>', opts )
+-- keymap('n', '<silent>       <LocalLeader>rr', ':MagmaEvaluateLine<CR>'    , opts )
+-- keymap('n', '<silent>       <LocalLeader>r ', ':<C-u>MagmaEvaluateVisual<CR>', opts)
+-- keymap('n', '<silent>       <LocalLeader>rc', ':MagmaReevaluateCell<CR>'  , opts )
+-- keymap('n', '<silent>       <LocalLeader>rd', ':MagmaDelete<CR>'          , opts )
+-- keymap('n', '<silent>       <LocalLeader>ro', ':MagmaShowOutput<CR>'      , opts )
+
+-- let g:magma_automatically_open_output = v:false
+

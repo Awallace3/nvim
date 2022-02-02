@@ -2,10 +2,9 @@
 local use = require('packer').use
 require('packer').startup(function()
 
-
   use 'wbthomason/packer.nvim'
   -- colorschemes
-  --use 'tomasr/molokai'
+  -- use 'tomasr/molokai'
   use 'rose-pine/neovim'
   use 'arcticicestudio/nord-vim'
   use 'folke/tokyonight.nvim'
@@ -16,8 +15,6 @@ require('packer').startup(function()
 
   -- use 'nvim-lua/popup.nvim'
   -- use 'nvim-telescope/telescope-media-files.nvim'
-
-
 
   use 'tpope/vim-surround'
   use {
@@ -89,7 +86,7 @@ require('packer').startup(function()
   use {
     'nvim-orgmode/orgmode',
     config = function()
-      --require('orgmode').setup {}
+      -- require('orgmode').setup {}
     end
   }
 
@@ -122,41 +119,56 @@ require('packer').startup(function()
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-
   use {
     'vimwiki/vimwiki',
     config = function()
-      vim.g.vimwiki_list = {{path = '~/vimwiki', syntax = 'markdown', ext = '.md'}}
+      vim.g.vimwiki_list = {
+        {
+          path = '~/vimwiki',
+          template_path = 'default',
+          template_default = 'default',
+          css_name = '/Users/austinwallace/vimwiki/style.css',
+          syntax = 'markdown',
+          ext = '.md',
+          path_html = '~/vimwiki',
+          custom_wiki2html = 'vimwiki_markdown',
+          template_ext = '.tpl'
+        }
+      }
       -- vim.g.vimwiki_list = {{'path': {'type': type(''), 'default': '/Users/austinwallace/vimwiki', 'min_length': 1}}}
---       vim.g.vimwiki_list = {
--- 		path = '~/vimwiki/',
--- 		path_html = '~/vimwiki/',
--- 		template_path = '~/vimwiki/',
--- 		template_default = 'default',
--- 		syntax = 'markdown',
--- 		ext = '.md'
--- --		custom_wiki2html = '~/.local/share/nvim/scripts/wiki2html.sh',
--- 	}
-             vim.g.vimwiki_ext2syntax = {['.md'] = 'markdown', ['.markdown'] = 'markdown', ['.mdown'] = 'markdown'}
+      --       vim.g.vimwiki_list = {
+      -- 		path = '~/vimwiki/',
+      -- 		path_html = '~/vimwiki/',
+      -- 		template_path = '~/vimwiki/',
+      -- 		template_default = 'default',
+      -- 		syntax = 'markdown',
+      -- 		ext = '.md'
+      -- --		custom_wiki2html = '~/.local/share/nvim/scripts/wiki2html.sh',
+      -- 	}
+      vim.g.vimwiki_ext2syntax = {['.md'] = 'markdown', ['.markdown'] = 'markdown', ['.mdown'] = 'markdown'}
     end
   }
-  --use {'edluffy/hologram.nvim'}
+  -- use {'edluffy/hologram.nvim'}
   use {'jbyuki/venn.nvim'}
- use {
-   'glacambre/firenvim',
-   run = function() vim.fn['firenvim#install'](0) end
-   }
+  use {
+    'glacambre/firenvim',
+    run = function()
+      vim.fn['firenvim#install'](0)
+    end
+  }
 
-    use {'preservim/nerdtree',
-        requires = {'Xuyuanp/nerdtree-git-plugin'}
-    }
-    use {
-     'lewis6991/gitsigns.nvim',
-     requires = {
-       'nvim-lua/plenary.nvim'
-     },
-    }
-    -- use 'jbyuki/nabla.nvim'
+  use {'preservim/nerdtree', requires = {'Xuyuanp/nerdtree-git-plugin'}}
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  use 'jbyuki/nabla.nvim'
 
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
+    end
+  }
+  -- use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
 end)
 
