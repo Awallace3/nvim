@@ -7,17 +7,15 @@ vim.g.mapleader = ' '
 
 -- closing tags
 -- keymap('i', '{', '{<CR>}<Esc>ko', opts)
---keymap('i', '{', '{<CR>}<Esc>ko', opts)
---keymap('i', '(', '()<Esc>i', opts)
---keymap('i', '[', '[]<Esc>i', opts)
---keymap('i', '"', '""<Esc>i', opts)
---keymap('i', "'", "''<Esc>i", opts)
---keymap('i', '$', '$$<Esc>i', opts)
---keymap('i', "<", "<><Esc>i", opts)
---keymap('i', "<", "<><Esc>i", opts)
-require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
-})
+-- keymap('i', '{', '{<CR>}<Esc>ko', opts)
+-- keymap('i', '(', '()<Esc>i', opts)
+-- keymap('i', '[', '[]<Esc>i', opts)
+-- keymap('i', '"', '""<Esc>i', opts)
+-- keymap('i', "'", "''<Esc>i", opts)
+-- keymap('i', '$', '$$<Esc>i', opts)
+-- keymap('i', "<", "<><Esc>i", opts)
+-- keymap('i', "<", "<><Esc>i", opts)
+require('nvim-autopairs').setup({disable_filetype = {"TelescopePrompt", "vim"}})
 
 keymap('n', '<c-s>', ':w<CR>', {})
 keymap('i', '<c-s>', '<ESC>:w<CR>a', {})
@@ -40,27 +38,30 @@ keymap('n', '<Leader>P', ":terminal python3 %<CR>", opts)
 keymap('n', '<Leader>f', ':Telescope find_files<cr>', {})
 keymap('n', '<Leader>r', ':Telescope live_grep<cr>', {})
 
-
 keymap('n', '<Leader>n', ':NERDTreeToggle<cr>', {})
 keymap('n', '<Leader>b', ':BufferLinePick<cr>', {})
 
 -- nabla
 keymap('n', '<F5>', ':lua require("nabla").action()<cr>', {})
-keymap('n', '<leader>p',':lua require("nabla").popup()<cr>', {})
+keymap('n', '<leader>p', ':lua require("nabla").popup()<cr>', {})
 
 -- Database with dadbod
 keymap('n', '<Leader>du', ':DBUIToggle<cr>', {})
 keymap('n', '<Leader>df', ':DBUIFindBuffer<cr>', {})
 keymap('n', '<Leader>dr', ':DBUIRenameBuffer<cr>', {})
 keymap('n', '<Leader>dl', ':DBUILastQueryInfo<cr>', {})
-vim.g['db_ui_save_location']= '~/.config/db_ui'
+vim.g['db_ui_save_location'] = '~/.config/db_ui'
 
 keymap('n', '<Leader>ew', ':HopWord<cr>', {})
 keymap('n', '<Leader>ec', ':HopChar1<cr>', {})
 keymap('n', '<Leader>el', ':HopLine<cr>', {})
+keymap('n', '<Leader>ee', ':MdEval<cr>', {})
+keymap('n', '<Leader>em', ':MarkdownPreview<cr>', {})
 
 keymap('v', '<Leader>w', "<esc>:'<,'>s/$/  /<cr>/added_whitespace<cr>", opts)
+keymap('v', '<Leader>y', '"+y', opts)
 
+keymap('n', '<Leader>F', ':Neoformat<cr>', {})
 -- magma
 
 -- keymap('n', '<silent><expr><LocalLeader>r', ':MagmaEvaluateOperator<CR>', opts )
@@ -72,3 +73,5 @@ keymap('v', '<Leader>w', "<esc>:'<,'>s/$/  /<cr>/added_whitespace<cr>", opts)
 
 -- let g:magma_automatically_open_output = v:false
 
+keymap('i', '<c-e>', 'copilot#Accept("<CR>")', {expr=true, script=true})
+vim.g['copilot_no_tab_map'] = true

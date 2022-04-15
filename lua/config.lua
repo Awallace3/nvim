@@ -6,6 +6,8 @@ vim.wo.relativenumber = true
 
 vim.o.scrolloff = 8
 
+vim.g.markdown_fenced_languages = {'python', 'cpp'}
+
 vim.cmd [[
     set splitright
     autocmd BufWritePre *\(.md\|.diffs\)\@<! :%s/\s\+$//e

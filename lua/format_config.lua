@@ -1,7 +1,7 @@
-require'format'.setup {
---    ["*"] = {
---        {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
---    },
+require('format').setup {
+  --    ["*"] = {
+  --        {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
+  --    },
   html = {{cmd = {"prettier -w"}}},
   css = {{cmd = {"prettier -w"}}},
   json = {{cmd = {"prettier -w"}}},
@@ -17,6 +17,15 @@ require'format'.setup {
           return string.format(
                      'lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb --indent-width=2 %s',
                      file)
+        end
+      }
+    }
+  },
+  latex = {
+    {
+      cmd = {
+        function(file)
+          return string.format('prettier %s --write', file)
         end
       }
     }

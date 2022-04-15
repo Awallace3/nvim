@@ -8,15 +8,16 @@ require 'lualine-config'
 require 'run_file'
 require 'whichkey-config'
 require 'colorscheme'
-require 'format_config'
 require 'toggleterm-config'
---require 'orgmode_config'
+-- require 'orgmode_config'
 require 'comments'
 require 'bufferline_config'
---require 'nvim_tree'
+-- require 'nvim_tree'
 require 'iterm2'
 require 'drawer'
 --
---#region
+-- #region
 --
 require 'git_int_config'
+require 'mdeval-config'
+-- require 'format_config'
