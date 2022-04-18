@@ -129,7 +129,6 @@ require('packer').startup(function()
     use 'GoldsteinE/compe-latex-symbols'
     use 'p00f/nvim-ts-rainbow'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
-    use 'numToStr/Comment.nvim'
     use {"ray-x/lsp_signature.nvim"}
 
     -- using packer.nvim
@@ -196,5 +195,7 @@ require('packer').startup(function()
     use {'sbdchd/neoformat'}
     use 'RishabhRD/popfix'
     use 'RishabhRD/nvim-cheat.sh'
+    -- use 'KarlWithK/rust-tools.nvim'
+    -- use 'numToStr/Comment.nvim'
 end)
 
