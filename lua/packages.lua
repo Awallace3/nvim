@@ -50,17 +50,15 @@ require('packer').startup(function()
     -- lsp
     use 'neovim/nvim-lspconfig'
 
-    use({
-        "hrsh7th/nvim-cmp",
-        requires = {{"kdheepak/cmp-latex-symbols"}},
-        sources = {{name = "latex_symbols"}}
-    })
+    -- use({
+    --     "hrsh7th/nvim-cmp",
+    --     requires = {{"kdheepak/cmp-latex-symbols"}},
+    --     sources = {{name = "latex_symbols"}}
+    -- })
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/nvim-cmp'
-    -- use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     -- Installation
     -- snippets
@@ -197,5 +195,10 @@ require('packer').startup(function()
     use 'RishabhRD/nvim-cheat.sh'
     -- use 'KarlWithK/rust-tools.nvim'
     -- use 'numToStr/Comment.nvim'
+    -- use 'kamykn/spelunker.vim'
+    use {
+        'lewis6991/spellsitter.nvim',
+        config = function() require('spellsitter').setup() end
+    }
 end)
 

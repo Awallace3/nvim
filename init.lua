@@ -19,5 +19,6 @@ require 'drawer'
 --
 require 'git_int_config'
 require 'mdeval-config'
--- require 'format_config'
+require 'format_config'
 -- require 'comments'
+require 'spell_config'
