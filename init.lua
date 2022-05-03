@@ -1,7 +1,7 @@
 require 'packages'
 require 'lsp'
-require 'keybindings'
 require 'config'
+require 'keybindings'
 require 'telescope-config'
 require 'treesitter-config'
 require 'lualine-config'
