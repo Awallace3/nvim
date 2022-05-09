@@ -73,7 +73,7 @@ keymap('n', '<Leader>F', ':Neoformat<cr>', {})
 
 -- let g:magma_automatically_open_output = v:false
 -- spell
-keymap('v', '<Leader>z', '1z=', {})
+keymap('n', '<Leader>z', '1z=', {})
 
 keymap('i', '<c-f>', 'copilot#Accept("<CR>")', {expr = true, script = true})
 vim.g['copilot_no_tab_map'] = true
