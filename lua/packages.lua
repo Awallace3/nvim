@@ -200,5 +200,6 @@ require('packer').startup(function()
     --     'lewis6991/spellsitter.nvim',
     --     config = function() require('spellsitter').setup() end
     -- }
+    use 'vigoux/LanguageTool.nvim'
 end)
 

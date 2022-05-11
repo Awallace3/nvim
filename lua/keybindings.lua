@@ -32,8 +32,45 @@ keymap('n', '[b', ':bprevious<cr>', opts)
 -- keymap('n', '<Leader>R', ":lua File_type(%)", opts)
 -- keymap('n', '<Leader>R', ":terminal /Users/austinwallace/.config/nvim/lua/run-module/file_type.lua ", opts)
 
+function SaveNotModifiable()
+    vim.cmd [[
+    set ma
+    w out.log
+    bd
+    vs out.log
+    set nowrap
+    ]]
+end
+
+function Python_term()
+    vim.cmd [[
+    vs
+    term python3 main.py
+    ]]
+end
+
 keymap('n', '<Leader>L', ":terminal lua %<CR>", opts)
-keymap('n', '<Leader>P', ":terminal python3 %<CR>", opts)
+-- keymap('n', '<Leader>P', ":vsplit | terminal python3 %<CR>", opts)
+keymap('n', '<Leader>P', ":lua Python_term() <CR>", opts)
+-- keymap('n', '<Leader>wo', ":set ma | w out.log |  %<CR>", opts)
+keymap('n', '<Leader>wo', ":lua SaveNotModifiable() <CR>", opts)
+-- vim.api.nvim_set_keymap("n", "<Leader>P", {
+--     callback = function()
+--         vim.cmd [[
+--     vs
+--     exe ":term python3 main.py"
+--     set ma
+--     w out.log
+--     ]]
+--     end,
+--     expr = true
+-- }, opts)
+-- keymap('n', '<Leader>P',
+--         ':vs | exe ":term python3 main.py" | set ma | w out.log | %<CR>', opts)
+--
+--
+--
+--
 -- Telescope
 keymap('n', '<Leader>f', ':Telescope find_files<cr>', {})
 keymap('n', '<Leader>r', ':Telescope live_grep<cr>', {})

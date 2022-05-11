@@ -10,6 +10,9 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.api.nvim_command('setlocal spell spelllang=en_us')
         vim.api.nvim_command('set spellsuggest+=10')
+        -- vim.g.languagetool_server_jar =
+        --     "/usr/local/Cellar/languagetool/5.7/libexec/languagetool-server.jar"
+        -- vim.g.languagetool_server_command = "echo Server Started"
     end
 
 })
@@ -20,8 +23,9 @@ vim.g.markdown_fenced_languages = {'python', 'cpp'}
 
 vim.cmd [[
     set splitright
-    autocmd BufWritePre *\(.md\|.diffs\)\@<! :%s/\s\+$//e
+    autocmd BufWritePre *\(.md\|.diffs\|\wmain.py\)\@<! :%s/\s\+$//e
 ]]
+
 -- autocmd BufWritePre * :%s/\s\+$//e
 -- vim.cmd [[
 -- let &t_ZH="\e[3m"
