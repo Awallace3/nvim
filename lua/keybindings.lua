@@ -52,6 +52,7 @@ end
 keymap('n', '<Leader>L', ":terminal lua %<CR>", opts)
 -- keymap('n', '<Leader>P', ":vsplit | terminal python3 %<CR>", opts)
 keymap('n', '<Leader>P', ":lua Python_term() <CR>", opts)
+keymap("n", '<Leader>R', ':vs | silent term rm corpus/d1.csv ', opts)
 -- keymap('n', '<Leader>wo', ":set ma | w out.log |  %<CR>", opts)
 keymap('n', '<Leader>wo', ":lua SaveNotModifiable() <CR>", opts)
 -- vim.api.nvim_set_keymap("n", "<Leader>P", {
@@ -114,3 +115,4 @@ keymap('n', '<Leader>z', '1z=', {})
 
 keymap('i', '<c-f>', 'copilot#Accept("<CR>")', {expr = true, script = true})
 vim.g['copilot_no_tab_map'] = true
+
