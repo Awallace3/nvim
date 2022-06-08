@@ -126,7 +126,7 @@ require('packer').startup(function()
     use 'windwp/nvim-autopairs'
     use 'GoldsteinE/compe-latex-symbols'
     use 'p00f/nvim-ts-rainbow'
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    -- use 'JoosepAlviste/nvim-ts-context-commentstring'
     use {"ray-x/lsp_signature.nvim"}
 
     -- using packer.nvim
@@ -201,5 +201,6 @@ require('packer').startup(function()
     --     config = function() require('spellsitter').setup() end
     -- }
     use 'vigoux/LanguageTool.nvim'
+    use "neomutt/neomutt.vim"
 end)
 

@@ -100,6 +100,7 @@ keymap('v', '<Leader>w', "<esc>:'<,'>s/$/  /<cr>/added_whitespace<cr>", opts)
 keymap('v', '<Leader>y', '"+y', opts)
 
 keymap('n', '<Leader>F', ':Neoformat<cr>', {})
+keymap('n', '<Leader>s', ':vs<cr>', {})
 -- magma
 
 -- keymap('n', '<silent><expr><LocalLeader>r', ':MagmaEvaluateOperator<CR>', opts )
